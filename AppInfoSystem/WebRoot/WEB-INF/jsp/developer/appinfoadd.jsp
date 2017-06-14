@@ -6,7 +6,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>新增APP基础信息 <i class="fa fa-user"></i><small>${devUserSession.devName}</small></h2>
+        <h2>新增APP基础信息 <i class="fa fa-user"></i><small>${devUserSession.devName}</small>${uploadFileError}</h2>
              <div class="clearfix"></div>
       </div>
       <div class="x_content">
@@ -19,14 +19,16 @@
          </div>
        </div> -->
            <div class="clearfix"></div>
-        <form class="form-horizontal form-label-left" action="appinfoaddsave" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal form-label-left" action="${pageContext.request.contextPath }/appInfo/addAppInfo" method="post" enctype="multipart/form-data">
+          <input type="hidden" id="path" value="${pageContext.request.contextPath}" />
+          <input type="hidden"  name="createdBy" value="${devUserSession.id}" />
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">软件名称 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="softwareName" class="form-control col-md-7 col-xs-12" 
                data-validate-length-range="20" data-validate-words="1" name="softwareName"  required="required"
-               placeholder="请输入软件名称" type="text">
+               placeholder="请输入软件名称" type="text" value="${appInfoBack.softwareName}">
             </div>
           </div>
           <div class="item form-group">
@@ -35,7 +37,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="APKName" class="form-control col-md-7 col-xs-12" 
               	data-validate-length-range="20" data-validate-words="1" name="APKName"   required="required"
-              	placeholder="请输入APK名称" type="text">
+              	placeholder="请输入APK名称" type="text" value="${appInfoBack.APKName}">
             </div>
           </div>
           
@@ -45,7 +47,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="supportROM" class="form-control col-md-7 col-xs-12" name="supportROM" 
               	data-validate-length-range="20" data-validate-words="1"   required="required"
-              	placeholder="请输入支持的ROM" type="text">
+              	placeholder="请输入支持的ROM" type="text" value="${appInfoBack.supportROM}">
             </div>
           </div>
           <div class="item form-group">
@@ -54,7 +56,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="interfaceLanguage" class="form-control col-md-7 col-xs-12" 
               data-validate-length-range="20" data-validate-words="1" name="interfaceLanguage"   required="required"
-              placeholder="请输入软件支持的界面语言" type="text">
+              placeholder="请输入软件支持的界面语言" type="text" value="${appInfoBack.interfaceLanguage}">
             </div>
           </div>
           <div class="item form-group">
@@ -62,7 +64,7 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="number" id="softwareSize" name="softwareSize"   required="required" onkeyup="value=value.replace(/[^\d]/g,'')"
-              data-validate-minmax="10,500"  placeholder="请输入软件大小，单位为Mb" class="form-control col-md-7 col-xs-12">
+              data-validate-minmax="10,500"  placeholder="请输入软件大小，单位为Mb" class="form-control col-md-7 col-xs-12" value="${appInfoBack.softwareSize}">
             </div>
           </div>
           
@@ -71,7 +73,7 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="number" id="downloads" name="downloads"   required="required"
-              data-validate-minmax="10,500"  placeholder="请输入下载次数" class="form-control col-md-7 col-xs-12">
+              data-validate-minmax="10,500"  placeholder="请输入下载次数" class="form-control col-md-7 col-xs-12" value="${appInfoBack.downloads}">
             </div>
           </div>
           
@@ -106,7 +108,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">APP状态 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            	<input type="hidden" name="status" id="status" value="1">待审核
+            	<input type="hidden" name="STATUS" id="status" value="1">待审核
             </div>
           </div>
           <div class="item form-group">
@@ -114,16 +116,16 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <textarea id="appInfo" name="appInfo"     required="required"
-              placeholder="请输入本软件的相关信息，本信息作为软件的详细信息进行软件的介绍。" class="form-control col-md-7 col-xs-12"></textarea>
+              placeholder="请输入本软件的相关信息，本信息作为软件的详细信息进行软件的介绍。" class="form-control col-md-7 col-xs-12"><s:property value='${appInfoBack.appInfo}'/></textarea>
             </div>
           </div>
            <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">LOGO图片 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            <input type="file" class="form-control col-md-7 col-xs-12" name="a_logoPicPath"  required="required" id="a_logoPicPath"/>
-            ${fileUploadError }
-            </div>
+            <input type="file" class="form-control col-md-7 col-xs-12" name="a_logoPicPath"  required="required" id="a_logoPicPath"  onchange="document.getElementById('theFilePath').value=this.value"/>
+            <input type="hidden" id="theFilePath" name="logoLocPath" >
+            </div><label style="color: red;">${uploadFileError}</label>
           </div>
           <div class="ln_solid"></div>
           <div class="form-group">
