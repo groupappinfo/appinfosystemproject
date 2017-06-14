@@ -1,15 +1,12 @@
 package cn.appsys.controller;
-
 import java.io.File;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.catalina.Server;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import com.alibaba.fastjson.JSON;
 import cn.appsys.pojo.AppCategory;
 import cn.appsys.pojo.AppInfo;
@@ -118,7 +117,7 @@ public class AppInfoContorller {
 			String path = request.getSession().getServletContext()
 					.getRealPath("statics" + File.separator + "uploadfiles");// 创建存放上传文件的文件夹
 			String oldFileName = attach.getOriginalFilename();// 获得文件名
-			String prefix = FilenameUtils.getExtension(oldFileName);// 获得文件名后缀
+			String prefix = FilenameUtils.getExtension(oldFileName);// 获得文件名
 			int fileZize = 51200;// 设定上传文件大小
 			if (attach.getSize() > fileZize) {// 判断长传文件大小
 				request.setAttribute("uploadFileError", "上传文件大小不得超过50kb！");
