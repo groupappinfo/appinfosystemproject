@@ -17,6 +17,10 @@ public class BackendUser implements Serializable {
 	private int modifyBy;
 	private Date modifyDate;
 	private String userPassword;
+	
+	
+	
+	
 	public BackendUser() {
 		super();
 		// TODO Auto-generated constructor stub
