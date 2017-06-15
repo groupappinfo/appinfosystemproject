@@ -32,4 +32,6 @@ public interface AppInfoMapper {
 	public int checkApkNameUnique(@Param("APKName") String APKName);
 	
 	public int addAppInfo(AppInfo appInfo);
+	
+	public AppInfo getAppInfoById(@Param("id") int id);
 }

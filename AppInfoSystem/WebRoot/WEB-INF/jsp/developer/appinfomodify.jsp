@@ -145,5 +145,11 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
 <%@include file="common/footer.jsp"%>
 <script src="${pageContext.request.contextPath }/statics/localjs/appinfomodify.js"></script>

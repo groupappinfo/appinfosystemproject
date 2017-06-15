@@ -30,4 +30,6 @@ public interface AppInfoService {
 	public int checkApkNameUnique(@Param("APKName") String APKName);
 	
 	public int addAppInfo(AppInfo appInfo);
+	
+	public AppInfo getAppInfoById(int id);
 }
