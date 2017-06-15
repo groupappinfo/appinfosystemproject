@@ -17,13 +17,34 @@ public class BackendUser implements Serializable {
 	private int modifyBy;
 	private Date modifyDate;
 	private String userPassword;
+	private String userTypeName;
+<<<<<<< HEAD
 	
 	
-	
-	
+=======
+	private String valueName;
+	public String getUserTypeName() {
+		return userTypeName;
+	}
+	public void setUserTypeName(String userTypeName) {
+		this.userTypeName = userTypeName;
+	}
+	public String getValueName() {
+		return valueName;
+	}
+	public void setValueName(String valueName) {
+		this.valueName = valueName;
+	}
+>>>>>>> 75bbbe8349a7cdf30a68a7201daa9f917859095e
 	public BackendUser() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public String getUserTypeName() {
+		return userTypeName;
+	}
+	public void setUserTypeName(String userTypeName) {
+		this.userTypeName = userTypeName;
 	}
 	public BackendUser(int id, String userCode, String userName, int userType,
 			int createdBy, Date creationDate, int modifyBy, Date modifyDate,

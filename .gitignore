@@ -1,0 +1,7 @@
+
+*.java
+*.java
+AppInfoSystem/src/cn/appsys/pojo/BackendUser.java
+AppInfoSystem/src/cn/appsys/pojo/BackendUser.java
+AppInfoSystem/build/classes/cn/appsys/dao/AppInfoMapper.xml
+AppInfoSystem/build/classes/cn/appsys/pojo/BackendUser.class

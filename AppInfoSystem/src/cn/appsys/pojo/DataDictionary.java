@@ -9,14 +9,14 @@ public class DataDictionary implements Serializable{
 	 */
 	private static final long serialVersionUID = 801990243225796905L;
 private int	id; 
-private String	typeCode; 
-private String	typeName; 
-private int		valueId; 
-private String	valueName; 
+private String typeCode; 
+private String typeName; 
+private int valueId; 
+private String valueName; 
 private int	createdBy; 
-private Date	creationDate; 
+private Date creationDate;
 private int	modifyBy; 
-private Date	modifyDate;
+private Date modifyDate;
 public DataDictionary() {
 	super();
 	// TODO Auto-generated constructor stub

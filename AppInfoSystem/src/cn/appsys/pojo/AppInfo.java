@@ -34,20 +34,22 @@ public class AppInfo implements Serializable {
 	private String logoLocPath;
 	private int versionId;
 	
-	private String valueName;
 	private String flatformName;
 	private String categoryName;
 	private String categoryLevel1Name;
 	private String categoryLevel2Name;
 	private String categoryLevel3Name;
 	private String statusName;
-	private int versionNo;
+	private String versionNo;
+	private int pageIndex;
 	
-	public String getValueName() {
-		return valueName;
+	
+	
+	public int getPageIndex() {
+		return pageIndex;
 	}
-	public void setValueName(String valueName) {
-		this.valueName = valueName;
+	public void setPageIndex(int pageIndex) {
+		this.pageIndex = pageIndex;
 	}
 	public String getFlatformName() {
 		return flatformName;
@@ -85,10 +87,10 @@ public class AppInfo implements Serializable {
 	public void setStatusName(String statusName) {
 		this.statusName = statusName;
 	}
-	public int getVersionNo() {
+	public String getVersionNo() {
 		return versionNo;
 	}
-	public void setVersionNo(int versionNo) {
+	public void setVersionNo(String versionNo) {
 		this.versionNo = versionNo;
 	}
 	public AppInfo() {
@@ -128,6 +130,7 @@ public class AppInfo implements Serializable {
 		this.logoPicPath = logoPicPath;
 		this.logoLocPath = logoLocPath;
 		this.versionId = versionId;
+		
 	}
 	public int getId() {
 		return id;

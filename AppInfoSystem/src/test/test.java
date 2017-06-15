@@ -20,14 +20,10 @@ public class test {
 	public void testOne(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext-mybatis.xml");	
 		AppInfoMapper appInfoMapper =  (AppInfoMapper)context.getBean("appInfoMapper");
-	    List<AppInfo> listAppInfo = appInfoMapper.getAppInfosByPage();
-	    System.out.println(listAppInfo.size());
-	    for (Iterator iterator = listAppInfo.iterator(); iterator.hasNext();) {
-			AppInfo appInfo = (AppInfo) iterator.next();
-			System.out.println(appInfo.getFlatformName()+"---------"+appInfo.getCategoryLevel1Name()+"---------"+appInfo.getCategoryLevel2Name()+"-----" +
-					"----"+appInfo.getCategoryLevel3Name()+"---------"+appInfo.getStatusName()+"---------"+appInfo.getVersionNo());
+		System.out.println(appInfoMapper.getSecondLevelList(1).size());
+	    
 		}
 	}
 
 
-}
+

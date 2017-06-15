@@ -109,7 +109,6 @@ public class LoginController {
 				return "backendlogin";
 			}
 		}
-		
 	}
 	@RequestMapping("/backendLogout")
 	public String backendLogin(HttpSession session){
