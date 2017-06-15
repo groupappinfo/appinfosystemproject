@@ -19,9 +19,12 @@ public class BackendUser implements Serializable {
 	private String userPassword;
 	private String userTypeName;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	
 =======
+=======
+>>>>>>> 75bbbe8349a7cdf30a68a7201daa9f917859095e
 	private String valueName;
 	public String getUserTypeName() {
 		return userTypeName;
@@ -35,6 +38,9 @@ public class BackendUser implements Serializable {
 	public void setValueName(String valueName) {
 		this.valueName = valueName;
 	}
+<<<<<<< HEAD
+>>>>>>> 75bbbe8349a7cdf30a68a7201daa9f917859095e
+=======
 >>>>>>> 75bbbe8349a7cdf30a68a7201daa9f917859095e
 	public BackendUser() {
 		super();
