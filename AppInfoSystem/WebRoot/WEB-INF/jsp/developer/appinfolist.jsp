@@ -209,6 +209,12 @@
 						<li><a  class="deleteApp" appinfoid=${appInfo.id }  appsoftwarename=${appInfo.softwareName } data-toggle="tooltip" data-placement="top" title="" data-original-title="删除APP基础信息以及全部版本信息">删除</a></li>
                       </ul>
                     </div>
+      
+		
+                    
+                    
+                    
+                    
 										</td>
 									</tr>
 								</c:forEach>

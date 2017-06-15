@@ -31,8 +31,8 @@
 	<select id="getAppInfosByPage" resultType="AppInfo"
 		parameterType="map">
 		SELECT appinfodb.app_info.id AS id,
-		softwareName,
 		APKName,
+		STATUS,
 		softwareSize,
 		d1.valueName AS flatformName,
 		d2.valueName AS statusName,
@@ -41,7 +41,8 @@
 		a2.categoryName AS
 		categoryLevel2Name,
 		a3.categoryName AS categoryLevel3Name,
-		versionNo
+		versionNo,
+		versionId
 		FROM
 		appinfodb.app_info INNER JOIN appinfodb.data_dictionary
 		AS d1 ON
