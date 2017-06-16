@@ -78,4 +78,27 @@ public class AppInfoServiceImpl implements AppInfoService {
 		return appInfoMapper.addAppInfo(appInfo);
 	}
 
+	@Override
+	public AppInfo getAppInfoById(int id) {
+	return appInfoMapper.getAppInfoById(id);
+	}
+
+<<<<<<< HEAD
+	@Override
+	public AppInfo getAppByAidVid(AppInfo appInfo) {
+		return appInfoMapper.getAppByAidVid(appInfo);
+	}
+
+	@Override
+	public boolean checkApp(AppInfo appInfo) {
+		int row = appInfoMapper.checkApp(appInfo);
+		if (row != 0) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+=======
+>>>>>>> 6388e0b5485a06188812413227fcbe612c1e5370
 }

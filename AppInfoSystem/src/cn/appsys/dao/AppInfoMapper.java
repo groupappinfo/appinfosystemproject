@@ -10,6 +10,7 @@ import cn.appsys.pojo.AppInfo;
 import cn.appsys.pojo.DataDictionary;
 
 public interface AppInfoMapper {
+	
 	public List<AppInfo> getAppInfosByPage(Map<String, Object> map);
 
 	public int getAppInfoTotalCount(AppInfo appInfo);
@@ -32,4 +33,12 @@ public interface AppInfoMapper {
 	public int checkApkNameUnique(@Param("APKName") String APKName);
 	
 	public int addAppInfo(AppInfo appInfo);
+	
+	public AppInfo getAppInfoById(@Param("id") int id);
+
+	
+	public AppInfo getAppByAidVid(AppInfo appInfo);
+	
+	//审核App
+	public int checkApp(AppInfo appInfo);
 }

@@ -1,5 +1,7 @@
 package cn.appsys.dao;
 
-public interface AppVersionMapper {
+import cn.appsys.pojo.AppVersion;
 
+public interface AppVersionMapper {
+	public AppVersion getAppVersion(AppVersion appVersion);
 }

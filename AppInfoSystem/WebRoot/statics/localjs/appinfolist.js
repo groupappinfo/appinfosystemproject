@@ -10,13 +10,11 @@ $("#queryCategoryLevel1").change(function(){
 			success:function(data){
 				//data：返回数据（json对象）
 				//$("#queryCategoryLevel2").html("");
-				var options = "<select name='categoryLevel2' id='queryCategoryLevel2' class='form-control'>" +
-						"<option value='0' selected='selected'>--请选择--</option>";
+				var options = "<option value='0' selected='selected'>--请选择--</option>";
 				for(var i = 0; i < data.length; i++){
 					options += "<option value=\""+data[i].id+"\">"+data[i].categoryName+"</option>";
 				}
-				options +="</select>";
-				$("#secondLevel").html(options);
+				$("#queryCategoryLevel2").html(options);
 			},
 			error:function(data){//当访问时候，404，500 等非200的错误状态码
 				alert("加载二级分类失败！");
@@ -24,14 +22,12 @@ $("#queryCategoryLevel1").change(function(){
 		});
 	}else{
 		//$("#queryCategoryLevel2").html("");
-		var options = "<select name='categoryLevel2' id='queryCategoryLevel2' class='form-control'>" +
-		"<option value='0' selected='selected'>--请选择--</option></select>";
-		$("#secondLevel").html(options);
+		var options = "<option value='0' selected='selected'>--请选择--</option></select>";
+		$("#queryCategoryLevel2").html(options);
 	}
 	//$("#queryCategoryLevel3").html("");
-	var options = "<select name='categoryLevel3' id='queryCategoryLevel3' class='form-control'>" +
-	"<option value='0' selected='selected'>--请选择--</option></select>";
-	$("#thirdLevel").html(options);
+	var options = "<option value='0' selected='selected'>--请选择--</option></select>";
+	$("#queryCategoryLevel3").html(options);
 });
 
 $("#queryCategoryLevel2").change(function(){
@@ -44,15 +40,13 @@ $("#queryCategoryLevel2").change(function(){
 			dataType:"json",//ajax接口（请求url）返回的数据类型
 			success:function(data){//data：返回数据（json对象）
 				//$("#queryCategoryLevel3").html("");
-				var options = "<select name='categoryLevel3' id='queryCategoryLevel3' class='form-control'>" +
-				"<option value='0' selected='selected'>--请选择--</option>";
+				var options = "<option value='0' selected='selected'>--请选择--</option>";
 				for(var i = 0; i < data.length; i++){
 					//alert(data[i].id);
 					//alert(data[i].categoryName);
 					options += "<option value=\""+data[i].id+"\">"+data[i].categoryName+"</option>";
 				}
-				options +="</select>";
-				$("#thirdLevel").html(options);
+				$("#queryCategoryLevel3").html(options);
 				
 			},
 			error:function(data){//当访问时候，404，500 等非200的错误状态码
@@ -61,9 +55,8 @@ $("#queryCategoryLevel2").change(function(){
 		});
 	}else{
 		//$("#queryCategoryLevel3").html("");
-		var options = "<select name='categoryLevel3' id='queryCategoryLevel3' class='form-control'>" +
-		"<option value='0' selected='selected'>--请选择--</option></select>";
-		$("#thirdLevel").html(options);
+		var options = "<option value='0' selected='selected'>--请选择--</option></select>";
+		$("#queryCategoryLevel3").html(options);
 	}
 });
 
@@ -92,7 +85,7 @@ $(".modifyAppInfo").on("click",function(){
 	var status = obj.attr("status");
 /*	alert(status);*/
 	if(status=="1"|| status=="3"){//待审核、审核未通过状态下才可以进行修改操作
-		window.location.href="appinfomodify?id="+ obj.attr("appinfoid");
+		window.location.href="/appInfo/appInfoModify/"+ obj.attr("appinfoid");
 	}else{
 		alert("该APP应用的状态为：【"+obj.attr("statusname")+"】,不能修改！");
 	}

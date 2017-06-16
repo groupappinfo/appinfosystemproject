@@ -14,8 +14,9 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form method="post" action="list">
+				<form method="post" action="${pageContext.request.contextPath }/appBackInfo/showAppInfoList">
 					<input type="hidden" name="pageIndex" value="1" />
+					<input type="hidden" id="path" value="${pageContext.request.contextPath}" />
 			    <ul>
 					<li>
 						<div class="form-group">
@@ -62,7 +63,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">二级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-							<input type="hidden" name="categorylevel2list" id="categorylevel2list"/>
+							<!-- <input type="hidden" name="categorylevel2list" id="categorylevel2list"/> -->
         						<select name="queryCategoryLevel2" id="queryCategoryLevel2" class="form-control">
         							<c:if test="${categoryLevel2List != null }">
 									   <option value="">--请选择--</option>
@@ -168,7 +169,7 @@
 										<td>${appInfo.versionNo }</td>
 										<td>
 										<button type="button" class="btn btn-default checkApp" 
-											appinfoid="${appInfo.id }" versionid="${appInfo.versionId }" status="${appInfo.status }" 
+											appinfoid="${appInfo.id }" versionid="${appInfo.versionId}" status="${appInfo.STATUS }" 
 											statusname="${appInfo.statusName }"											
 											data-toggle="tooltip" data-placement="top" title="" data-original-title="查看并审核APP">审核</button>
 										</td>

@@ -31,35 +31,44 @@
 	<select id="getAppInfosByPage" resultType="AppInfo"
 		parameterType="map">
 		SELECT appinfodb.app_info.id AS id,
-	    softwareName,
+		softwareName,
 		APKName,
 		STATUS,
 		softwareSize,
 		d1.valueName AS flatformName,
-		d2.valueName AS statusName,
+		d2.valueName
+		AS statusName,
 		downloads,
 		a1.categoryName AS categoryLevel1Name,
 		a2.categoryName AS
 		categoryLevel2Name,
-		a3.categoryName AS categoryLevel3Name,
+		a3.categoryName AS
+		categoryLevel3Name,
 		versionNo,
 		versionId
 		FROM
-		appinfodb.app_info INNER JOIN appinfodb.data_dictionary
+		appinfodb.app_info INNER
+		JOIN appinfodb.data_dictionary
 		AS d1 ON
-		d1.valueId = flatformId AND d1.typeCode = 'APP_FLATFORM'
+		d1.valueId = flatformId AND
+		d1.typeCode = 'APP_FLATFORM'
 		INNER
 		JOIN
-		appinfodb.data_dictionary AS d2 ON d2.valueId = STATUS AND
+		appinfodb.data_dictionary AS d2
+		ON d2.valueId = STATUS AND
 		d2.typeCode
 		= 'APP_STATUS'
-		INNER JOIN appinfodb.app_category AS a1 ON
+		INNER JOIN
+		appinfodb.app_category AS a1 ON
 		categoryLevel1 = a1.id
-		INNER JOIN appinfodb.app_category AS a2 ON
+		INNER JOIN
+		appinfodb.app_category AS a2 ON
 		categoryLevel2 = a2.id
-		INNER JOIN appinfodb.app_category AS a3 ON
+		INNER JOIN
+		appinfodb.app_category AS a3 ON
 		categoryLevel3 = a3.id
-		INNER JOIN appinfodb.app_version ON
+		INNER JOIN
+		appinfodb.app_version ON
 		versionId =
 		appinfodb.app_version.id
 		<where>
@@ -144,7 +153,8 @@
 		#{APKName}
 	</select>
 	<insert id="addAppInfo" parameterType="AppInfo">
-		INSERT INTO appinfodb.app_info
+		INSERT INTO
+		appinfodb.app_info
 		(
 		softwareName,
 		APKName,
@@ -183,4 +193,77 @@
 		#{logoLocPath}
 		);
 	</insert>
+	<select id="getAppInfoById" parameterType="int" resultType="AppInfo">
+		SELECT id,
+		softwareName,
+		APKName,
+		supportROM,
+		interfaceLanguage,
+		softwareSize,
+		downloads,
+		flatformId,
+		categoryLevel3,
+		categoryLevel1,
+		categoryLevel2,
+		STATUS,
+		appInfo,
+		logoPicPath
+		FROM
+		appinfodb.app_info
+		WHERE id = #{id}
+	</select>
+	<select id="getAppByAidVid" parameterType="AppInfo" resultType="AppInfo">
+	SELECT appinfodb.app_info.id AS id,
+		softwareName,
+		APKName,
+		STATUS,
+		softwareSize,
+		interfaceLanguage,
+		supportROM,
+		appInfo,
+		d1.valueName AS flatformName,
+		d2.valueName
+		AS statusName,
+		downloads,
+		a1.categoryName AS categoryLevel1Name,
+		a2.categoryName AS
+		categoryLevel2Name,
+		a3.categoryName AS
+		categoryLevel3Name,
+		versionNo,
+		versionId
+		FROM
+		appinfodb.app_info INNER
+		JOIN appinfodb.data_dictionary
+		AS d1 ON
+		d1.valueId = flatformId AND
+		d1.typeCode = 'APP_FLATFORM'
+		INNER
+		JOIN
+		appinfodb.data_dictionary AS d2
+		ON d2.valueId = STATUS AND
+		d2.typeCode
+		= 'APP_STATUS'
+		INNER JOIN
+		appinfodb.app_category AS a1 ON
+		categoryLevel1 = a1.id
+		INNER JOIN
+		appinfodb.app_category AS a2 ON
+		categoryLevel2 = a2.id
+		INNER JOIN
+		appinfodb.app_category AS a3 ON
+		categoryLevel3 = a3.id
+		INNER JOIN
+		appinfodb.app_version ON
+		versionId =
+		appinfodb.app_version.id
+		WHERE appinfodb.app_info.id = #{id} AND versionId = #{versionId}
+	</select>
+	<update id="checkApp" parameterType="AppInfo">
+		UPDATE appinfodb.app_info 
+		SET
+		STATUS = #{STATUS} 	
+		WHERE
+		id = #{id}
+	</update>
 </mapper>

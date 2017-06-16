@@ -1,5 +1,7 @@
 package cn.appsys.service;
 
-public interface AppVersionService {
+import cn.appsys.pojo.AppVersion;
 
+public interface AppVersionService {
+	public AppVersion getAppVersion(AppVersion appVersion);
 }

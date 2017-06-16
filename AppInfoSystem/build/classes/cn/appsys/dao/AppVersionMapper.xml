@@ -3,5 +3,23 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.appsys.dao.AppVersionMapper">
-
+	<!-- 根据版本ID获取版本信息 -->
+	<select id="getAppVersion" resultType="AppVersion" parameterType="AppVersion">
+		SELECT 	id, 
+		appId, 
+		versionNo, 
+		versionInfo, 
+		publishStatus, 
+		downloadLink, 
+		versionSize, 
+		createdBy, 
+		creationDate, 
+		modifyBy, 
+		modifyDate, 
+		apkLocPath, 
+		apkFileName
+		FROM
+		appinfodb.app_version 
+		WHERE id = #{id}
+	</select>
 </mapper>

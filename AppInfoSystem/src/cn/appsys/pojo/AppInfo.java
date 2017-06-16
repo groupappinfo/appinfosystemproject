@@ -22,7 +22,6 @@ public class AppInfo implements Serializable {
 	private Date onSaleDate;
 	private Date offSaleDate;
 	private int flatformId;
-	private int categoryLevel3;
 	private int downloads;
 	private int createdBy;
 	private Date creationDate;
@@ -30,6 +29,7 @@ public class AppInfo implements Serializable {
 	private Date modifyDate;
 	private int categoryLevel1;
 	private int categoryLevel2;
+	private int categoryLevel3;
 	private String logoPicPath;
 	private String logoLocPath;
 	private int versionId;

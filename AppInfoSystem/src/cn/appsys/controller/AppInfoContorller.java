@@ -11,6 +11,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,7 +63,7 @@ public class AppInfoContorller {
 		return "developer/appinfolist";
 	}
 
-	@RequestMapping("showSecondLevelList")
+	@RequestMapping("/showSecondLevelList")
 	@ResponseBody
 	public Object showSecondLevelList(@RequestParam("pid") String pid) {
 		List<AppCategory> listAppCategory = appInfoServiceImpl
@@ -70,7 +71,7 @@ public class AppInfoContorller {
 		return JSON.toJSONString(listAppCategory);
 	}
 
-	@RequestMapping("showThirdLevelList")
+	@RequestMapping("/showThirdLevelList")
 	@ResponseBody
 	public Object showThirdLevelList(@RequestParam("pid") String pid) {
 		List<AppCategory> listAppCategory = appInfoServiceImpl
@@ -161,5 +162,12 @@ public class AppInfoContorller {
 			request.setAttribute("appInfoBack", appInfo);
 			return "forward:/appInfo/showAddAppInfoPage";
 		}
+	}
+	@RequestMapping(value="/appInfoModify/{id}")
+	public String appInfoModify(@PathVariable String id,HttpServletRequest request){
+		AppInfo appInfo = null;
+		appInfo = appInfoServiceImpl.getAppInfoById(Integer.parseInt(id));
+		request.setAttribute("appInfo", appInfo);
+		return "developer/appinfomodify";
 	}
 }
