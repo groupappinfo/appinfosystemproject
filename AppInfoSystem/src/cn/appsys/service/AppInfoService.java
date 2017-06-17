@@ -32,11 +32,8 @@ public interface AppInfoService {
 	public int addAppInfo(AppInfo appInfo);
 	
 	public AppInfo getAppInfoById(int id);
-<<<<<<< HEAD
 	
 	public AppInfo getAppByAidVid(AppInfo appInfo);
 	//审核App
 	public boolean checkApp(AppInfo appInfo);
-=======
->>>>>>> 6388e0b5485a06188812413227fcbe612c1e5370
 }

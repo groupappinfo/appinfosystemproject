@@ -16,6 +16,7 @@
       <div class="x_content1">
         <form class="form-horizontal form-label-left" action="${pageContext.request.contextPath }/appBackInfo/checksave" method="post">
           <input type="hidden" name="id" value="${appInfo.id}">
+          <input type="hidden" id="path" value="${pageContext.request.contextPath}" />
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">软件名称 <span class="required">*</span>
             </label>

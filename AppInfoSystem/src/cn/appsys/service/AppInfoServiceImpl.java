@@ -82,8 +82,6 @@ public class AppInfoServiceImpl implements AppInfoService {
 	public AppInfo getAppInfoById(int id) {
 	return appInfoMapper.getAppInfoById(id);
 	}
-
-<<<<<<< HEAD
 	@Override
 	public AppInfo getAppByAidVid(AppInfo appInfo) {
 		return appInfoMapper.getAppByAidVid(appInfo);
@@ -98,7 +96,4 @@ public class AppInfoServiceImpl implements AppInfoService {
 			return false;
 		}
 	}
-
-=======
->>>>>>> 6388e0b5485a06188812413227fcbe612c1e5370
 }

@@ -29,7 +29,9 @@ import cn.appsys.tool.Page;
 public class AppInfoContorller {
 	@Autowired
 	AppInfoServiceImpl appInfoServiceImpl;
-
+	/**
+	 * 显示所有的APP信息
+	 */
 	@RequestMapping("/showAppInfoList")
 	public String showAppInfoList(AppInfo appInfo, HttpServletRequest request) {
 		request.setAttribute("statusList",
